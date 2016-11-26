@@ -24,7 +24,6 @@ package {
 	import flash.events.*;
 	import flash.ui.*;
 	
-	
 	public class Snake extends MovieClip
 	{
 		private var score, life, framesElapsed:Number;
