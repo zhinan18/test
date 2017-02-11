@@ -1,0 +1,16 @@
+mmp.android.audio.mode:Mmp Remote
+mmp.speaker.volume.max:Mmp Remote
+mmp.audio.rec.mode:Mmp Remote
+mmp.audio.play.mode:Mmp Remote
+mmp.aec.mode:Mmp Remote
+mmp.echo.delay.ms:Mmp Remote
+mmp.rxagc.target:Mmp Remote
+mmp.rxagc.enable:Mmp Remote
+mmp.screen.ratiox100:Mmp Remote
+mmp.screen.sizex10:Mmp Remote
+mmp.screen.area:Mmp Remote
+mmp.video.th1.max:Mmp Remote
+mmp.video.th2.max:Mmp Remote
+mmp.cpu.load:Mmp Remote
+mmp.cstm.w:Mmp Manual
+mmp.cstm.h:Mmp Manual

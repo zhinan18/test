@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<TERMINAL>
+  <GENERAL login_on_pc="0" manual_ip="1" cur_prof_user="6BF3A4C07A0BEF9F1567D347DDBB4B0EB79F9758" temp_dir=""/>
+  <SERVICE dft_reg_realm="sip.juphoon.com" dft_proxy_addr="192.168.0.55" dft_auth_in_realm="1" dft_subs_reg_event="0" dft_dtmf_type="0"/>
+  <EMERGENCY realm="" address=""/>
+  <TEST gui_show_debug="1" mme_dump_debug="0" mme_log_level="5" mvd_sync_audio="1"/>
+  <RING directory="ring"/>
+  <STATISTICS CommitSessSts="1" ArcTcpMode="0" TotalTransmissionSentByte="0" TotalTransmissionRecvByte="0" TotalMediaSentByte="0" TotalMediaRecvByte="0" DataTransmissionSentByte="0" DataTransmissionRecvByte="0" DataMediaSentByte="0" DataMediaRecvByte="0" VoiceCallLen="0" VideoCallLen="0"/>
+</TERMINAL>
