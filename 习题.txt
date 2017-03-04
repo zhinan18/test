@@ -1,13 +1,4 @@
-ActionScript 3.0 记要(1): 基本语法
-
-
-近期要做的东西既需要运行于网络又需要运行于本地, 并要尽量多地兼容各种平台(包括手机平台).
-大概了解了 PhoneGap、HTML5、Adobe AIR、Flash、SilverLight、uniGUI、Qt, 发现还是老牌的 Flash 更适合需求.
-
-因需全部用代码完成界面与逻辑, 所以主要的学习任务是 ActionScript 3.0;
-感谢 Delphi 给我的营养, 让我不再畏惧其它工具和语言.
-
-对 ActionScript 3.0 的初步感受: 很像且优于 JavaScript, 特别在面向对象方面; 另外参考资料也特别充足, 估计两三天即可修完需要的部分.
+ActionScript 3.0 记要
 
 测试环境 Flash CS5; 测试准备: 
 1、新建 ActionScript 3.0 工程;
