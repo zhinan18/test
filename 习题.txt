@@ -1,0 +1,444 @@
+ActionScript 3.0 记要(1): 基本语法
+
+
+近期要做的东西既需要运行于网络又需要运行于本地, 并要尽量多地兼容各种平台(包括手机平台).
+大概了解了 PhoneGap、HTML5、Adobe AIR、Flash、SilverLight、uniGUI、Qt, 发现还是老牌的 Flash 更适合需求.
+
+因需全部用代码完成界面与逻辑, 所以主要的学习任务是 ActionScript 3.0;
+感谢 Delphi 给我的营养, 让我不再畏惧其它工具和语言.
+
+对 ActionScript 3.0 的初步感受: 很像且优于 JavaScript, 特别在面向对象方面; 另外参考资料也特别充足, 估计两三天即可修完需要的部分.
+
+测试环境 Flash CS5; 测试准备: 
+1、新建 ActionScript 3.0 工程;
+2、在第一帧上点击右键 -> 动作, 打开代码输入窗口;
+3、输入代码后, Ctrl+Enter 运行.
+
+测试输出:
+trace(123);
+trace("abc");
+
+变量与常量:
+var a:int, b:int, c:int;
+a = b = c = 6;
+trace(a, b, c); //6 6 6
+
+const d:int = 123;
+trace(d);
+
+数据类型:
+//整形
+var iV1:int = -1;
+var iV2:int = new int(-2);
+var iV3:int = new int("-3");
+trace(iV1);
+trace(iV2);
+trace(iV3);
+
+//无符号整形
+var uV1:uint = 1;
+var uV2:uint = new uint(2);
+trace(uV1);
+trace(uV2);
+
+//浮点数
+var nV1:Number = 3.14159265;
+var nV2:Number = new Number(-3.14);
+trace(nV1);
+trace(nV2);
+
+//布尔值
+var bV1:Boolean = true;
+var bV2:Boolean = new Boolean(false);
+trace(bV1);
+trace(bV2);
+
+//字符串
+var sV1:String = 'ActionScript';
+var sV2:String = new String("万一的 Delphi 博客");
+trace(sV1);
+trace(sV2);
+
+/* Object */
+
+//Date
+var dateVal:Date = new Date(2011, 5, 13);
+trace(dateVal.toString());
+
+//数组
+var sArr1:Array = ["spring", "summer", "autumn", "winter"];
+var sArr2:Array = new Array("spring", "summer", "autumn", "winter");
+trace(sArr1[0]);
+trace(sArr2[1]);
+
+var iArr = [11, 22, 33];
+trace(iArr[iArr.length-1]);
+
+//XML
+var xmlVal:XML = <List><item>AAA</item><item>BBB</item></List>
+trace(xmlVal.item[0]); //AAA
+
+数据类型默认值:
+//整形
+var i:int;
+trace(i); //0
+trace(int.MIN_VALUE, int.MAX_VALUE); //-2147483648 2147483647
+
+//无符号整形
+var u:uint;
+trace(u); //0
+trace(uint.MIN_VALUE, uint.MAX_VALUE); //0 4294967295
+
+//浮点数
+var n:Number;
+trace(n); //NaN
+trace(Number.MIN_VALUE, Number.MAX_VALUE); //4.9406564584124654e-324 1.79769313486231e+308
+
+//布尔值
+var b:Boolean;
+trace(b); //false
+
+//字符串
+var s:String;
+trace(s); //null
+
+//Object
+var obj:Object;
+trace(obj); //null
+
+var dt:Date;
+trace(dt); //null
+
+//未声明
+var arr:Array = [11, 22];
+trace(arr[1]); //22
+trace(arr[2]); //undefined
+
+var val;
+trace(val);  //undefined
+
+trace(void); //undefined
+
+类型转换:
+//
+var i:int;
+i = int(true);  trace(i); //1
+i = int(false); trace(i); //0
+i = int(5.67);  trace(i); //5
+i = int(0x1A);  trace(i); //26
+
+i = parseInt('3'); trace(i); //3
+i = int("4");      trace(i); //4
+
+//
+var n:Number;
+n = parseFloat("3.14159265"); trace(n); //3.14159265
+n = Number("3.14159265");    trace(n); //3.14159265
+
+
+//
+var b:Boolean;
+b = Boolean(-1);   trace(b); //true
+b = Boolean(0);    trace(b); //false
+b = Boolean(1);    trace(b); //true
+b = Boolean(2);    trace(b); //true
+
+b = Boolean("");   trace(b); //false
+b = Boolean(" ");  trace(b); //true
+
+var obj1:Object;
+var obj2:Object = new Object();
+b = Boolean(obj1);   trace(b); //false
+b = Boolean(obj2);   trace(b); //true
+
+//
+var str:String;
+var arr:Array = ["primary", "secondary", "tertiary"];
+str = String(arr); trace(str);     //primary,secondary,tertiary
+str = String(Math.PI); trace(str); //3.141592653589793
+
+运算符:
+[]       //初始化数组
+{x:y}    //初始化对象
+()       //对表达式进行分组
+f(x)     //调用函数
+new      //调用构造函数
+x.y x[y] //访问属性
+<></>    //初始化 XMLList 对象 (E4X)
+@        //访问属性 (E4X)
+::       //限定名称 (E4X)
+..       //访问子级 XML 元素 (E4X)
+++       //递增(前缀、后缀)
+--       //递减(前缀、后缀)
++        //一元 +
+-        //一元 - （非）
+!        //逻辑 NOT
+~        //按位 NOT
+delete   //删除属性
+typeof   //返回类型信息
+void     //返回未定义值
+*        //乘
+/        //除
+%        //求模
++        //加
+-        //减
+<<       //按位左移位
+>>       //按位右移位
+>>>      //按位无符号右移位
+<        //小于
+>        //大于
+<=       //小于或等于
+>=       //大于或等于
+as       //检查数据类型
+in       //检查对象属性
+instanceof //检查原型链
+is       //检查数据类型
+==       //等于
+!=       //不等于
+===      //全等
+!==      //不全等
+&        //按位 AND
+^        //按位 XOR
+|        //按位 OR
+&&       //逻辑 AND
+||       //逻辑 OR
+?:       //三目运算符
+=        //赋值
+*=       //乘法赋值
+/=       //除法赋值
+%=       //求模赋值
++=       //加法赋值
+-=       //减法赋值
+<<=      //按位左移位赋值
+>>=      //按位右移位赋值
+>>>=     //按位无符号右移位赋值
+&=       //按位 AND 赋值
+^=       //按位 XOR 赋值
+|=       //按位 OR 赋值
+
+语句:
+//if 语句
+if () { } else { }
+
+//三目
+var a:int, b:int, c:int;
+a = 1;
+b = 2;
+c = (a > b) ? a : b;
+trace(c); //2
+
+//switch 语句
+var dt:Date = new Date();
+var day:uint = dt.getDay();
+switch(day)
+{
+    case 0:
+    trace("Sunday");
+    break;
+    case 1:
+    trace("Monday");
+    break;
+    case 2:
+    trace("Tuesday");
+    break;
+    case 3:
+    trace("Wednesday");
+    break;
+    case 4:
+    trace("Thursday");
+    break;
+    case 5:
+    trace("Friday");
+    break;
+    case 6:
+    trace("Saturday");
+    break;
+    default:
+    trace("Out of range");
+    break;
+}
+
+//for 循环
+for (var i:int = 0; i < 5; i++)
+{
+    trace(i);
+}
+
+//for in 循环
+var arr:Array = ["one", "two", "three"];
+for (var s:String in arr)
+{
+    trace(s, ":", arr[s]);
+}
+/***********
+0 : one
+1 : two
+2 : three
+************/
+var obj:Object = {x:20, y:30};
+for (var s:String in obj)
+{
+    trace(s, ":", obj[s]);
+}
+/***********
+y : 30
+x : 20
+************/
+
+//for each 循环
+var arr:Array = ["one", "two", "three"];
+for each (var str in arr)
+{
+    trace(str); //one/two/three
+}
+
+var obj:Object = {x:20, y:30};
+for each (var num in obj)
+{
+    trace(num); //20/30
+}
+
+var myXML:XML = <users><fname>Jane</fname><fname>Susan</fname><fname>John</fname></users>;
+for each (var item in myXML.fname)
+{
+    trace(item); //Jane/Susan/John
+}
+
+//while 循环与 do while 循环
+var i:int;
+
+i = 0;
+while (i<5)
+{
+    trace(i); //0/1/2/3/4
+    i++;
+}
+
+i = 5;
+do
+{
+    trace(i); //5
+    i++;
+} while(i<5);
+
+函数:
+//函数语句
+function Add(a:int, b:int):int
+{
+    return a + b;
+}
+trace(Add(1, 2)); //3
+//----------------------------------------------------------------
+
+
+//函数表达式
+var traceParameter:Function = function (str:String)
+{
+    trace("Hello " + str);
+}; //分号
+traceParameter("ActionScript"); //Hello ActionScript
+//----------------------------------------------------------------
+
+
+//函数成员
+function Sum(a:int, b:int):int { return a+b; }
+var arr:Array = new Array();
+arr[0] = Sum;
+arr[1] = function(a:int, b:int) { return a*b; };
+
+trace(arr[0](3, 4)); //7
+trace(arr[1](3, 4)); //12
+//----------------------------------------------------------------
+
+
+//嵌套函数
+function myFun():String
+{
+    function Fun1():String { return "Hello"; }
+    function Fun2():String { return "ActionScript"; }
+    return Fun1() + " " + Fun2();
+}
+trace(myFun()); //Hello ActionScript
+//----------------------------------------------------------------
+
+
+//默认参数
+function Sum(a:int, b:int=2, c:int=3):int { return a+b+c; }
+trace(Sum(1)); //6
+//----------------------------------------------------------------
+
+
+//基本数据类型参数(Boolean、Number、int、uint、String)按值传递
+function Inc1(a:int):void 
+{
+    a++; 
+}
+var b:int = 1;
+Inc1(b);
+trace(b); //1
+
+//对象参数按引用传递
+function Inc2(aObj:Object):void
+{
+    aObj.x++;
+    aObj.y++;
+}
+var obj:Object = { x:1, y:2 };
+Inc2(obj);
+trace(obj.x, obj.y); //2 3
+//----------------------------------------------------------------
+
+
+//函数中的 arguments 对象
+function myFun(a:int, b:int, c:int):void
+{
+    for (var i:uint = 0; i< arguments.length; i++)
+    {
+        trace(arguments[i]);
+    }
+}
+myFun(11, 22, 33); //11/22/33
+
+//arguments.callee 表示函数本身; 使用回调完成阶乘的例子:
+var factorial:Function = function (x:uint)
+{
+    if(x == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return (x * arguments.callee(x - 1)); //同 return (x * factorial(x - 1));
+    }
+}
+
+trace(factorial(5)); //120
+//----------------------------------------------------------------
+
+
+//... (rest) 数组参数:
+function myFun(...myArgs):void
+{
+    for (var i:uint = 0; i < myArgs.length; i++)
+    {
+        trace(myArgs[i]);
+    }
+}
+
+myFun(1, 2, 3); //1/2/3
+myFun("A", "B", "C", 1, 2, 3); //A/B/C/1/2/3
+
+错误处理:
+try 
+{
+    throw new Error("抛出错误");
+    trace("不会执行");
+} 
+catch(e:Error)
+{
+    trace(e.message);
+}
+finally 
+{
+    trace("是否发生错误都会执行");
+}
