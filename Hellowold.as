@@ -51,20 +51,18 @@
 			}
 		}
 		
-		public function testFor(num:int){
-			
-			
-				switch(num){
+		public function testFor(num:int):Boolean{			
+			switch(num){
 				case 1:
-				trace("burjfthcvbhvg");
-				
-				case 2:
-				trace("11");
+					trace("burjfthcvbhvg");
 				break;
-				}
+				case 2:
+					trace("11");
+					
+				break;
+			}
+				return true;
 		}
+			
 	}
-	
-	
-	
 }
