@@ -1,28 +1,35 @@
 ﻿package  {
 	
 	import flash.display.MovieClip
+	import flash.events.Event;
 	
 	
 	public class Hellowold extends MovieClip {
 		
 		private var hello:String = "helloWorld";
-		private var legs:int = 3;
+		private var legs:int = 3.1415;
 		private var hasLeg:Boolean = false;
+		var sArr1:Array = ["spring", "summer", "autumn", "winter"];
+		
+		
 		
 		public function Hellowold() {
+			trace(legs);
 			trace(hello);
 			legs = legs + 2;
 			trace(legs);
 			hasLeg = true;
 			trace(hasLeg);
-			testIf();
-			testFor();
+			//testIf();
+			testFor(1);
+			for(var count:int = 1;count<101;count++){
+				//trace(count);
+			}
 		}
 		
 		public function testIf(){
 			if(hasLeg){
 				trace("hasLeg");
-				
 			}else{
 				trace("hasLeg = false");
 			}
@@ -44,20 +51,17 @@
 			}
 		}
 		
-		public function testFor(){
-			for( var i = 1; i< 101;i++){
-				trace(i);
-				if(i == 47){
-					break;
+		public function testFor(num:int){
+			
+			
+				switch(num){
+				case 1:
+				trace("burjfthcvbhvg");
+				
+				case 2:
+				trace("11");
+				break;
 				}
-			}
-			while(legs>0){
-				trace(legs);
-				legs--;
-				if(legs == 3){
-					break;
-				}
-			}
 		}
 	}
 	
