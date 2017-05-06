@@ -438,3 +438,154 @@ finally
 {
     trace("是否发生错误都会执行");
 }
+
+
+计算个数：
+package{  
+      
+    /* 
+    题目：分别统计字符串中英文字母、空格、数字和其它字符的个数。  
+    1.程序分析：利用if-else语句,条件为输入的字符不为 '\n ' 
+    */  
+      
+    import flash.display.Sprite;  
+      
+    public class CharacterCount extends Sprite{  
+          
+        private var digital:int = 0;  //数字  
+        private var character:int = 0;  //字母  
+        private var space:int = 0;  //空格  
+        private var other:int = 0;  //其它字符  
+          
+        public function CharacterCount(){  
+              
+            var str:String = "23rARC0892 the name is OK! _Chacher Hello!!!";  
+            init(str);  
+        }  
+          
+        private function init(str:String):void{  
+            for(var i:int=0; i<str.length; i++){  
+                if(str.charAt(i)>='0' && str.charAt(i)<='9'){  
+                    digital++;  
+                }else if((str.charAt(i)>='a' && str.charAt(i)<='z') || (str.charAt(i)>='A' && str.charAt(i) <= 'Z')){  
+                    character++;  
+                }else if(str.charAt(i)==' '){  
+                    space++;  
+                }else{  
+                    other++;  
+                }  
+            }  
+            trace("digital : " + digital); //数字  
+            trace("character : " + character); //字母  
+            trace("space : " + space); //空格  
+            trace("other : " + other); //其它字符  
+        }  
+          
+    }  
+} 
+
+
+冒泡：
+package  
+{  
+      
+    public class BubbleSort  
+    {  
+          
+        public function BubbleSort()  
+        {  
+            var arr:Array = [2, 7, 9, 1, 5, 0, 9, 4];  
+            trace(sort2(arr, true));  
+            trace(sort2(arr, false));  
+        }  
+          
+        /** 
+         * AS3冒泡排序算法 
+         * @param arr 需要排序的数组 
+         * @param isAsc 是否升序 
+         * @return 返回排序后的数组 
+         */  
+        public function sort(arr:Array, isAsc:Boolean = true):Array  
+        {  
+            if(arr == null)  
+            {  
+                throw new Error("Array is null.");  
+            }  
+            var tmp:*;  
+            if(isAsc)  
+            {  
+                for(var i:int = 0; i < arr.length; i++)  
+                {  
+                    for(var j:int = arr.length - 1; j > i; j--)  
+                    {  
+                        if(arr[j] < arr[j - 1])  
+                        {  
+                            tmp = arr[j];  
+                            arr[j] = arr[j - 1];  
+                            arr[j - 1] = tmp;  
+                        }  
+                    }  
+                }  
+            }  
+            else  
+            {  
+                for(i = 0; i < arr.length; i++)  
+                {  
+                    for(j = arr.length - 1; j > i; j--)  
+                    {  
+                        if(arr[j] > arr[j - 1])  
+                        {  
+                            tmp = arr[j];  
+                            arr[j] = arr[j - 1];  
+                            arr[j - 1] = tmp;  
+                        }  
+                    }  
+                }  
+            }  
+            return arr;  
+        }  
+          
+        // 另一种写法  
+        public function sort2(arr:Array, isAsc:Boolean = true):Array  
+        {  
+            if(arr == null)  
+            {  
+                throw new Error("Array is null.");  
+            }  
+            var tmp:*;  
+            if(isAsc)  
+            {  
+                for(var i:int = 0; i < arr.length; i++)  
+                {  
+                    for(var j:int = i; j < arr.length; j++)  
+                    {  
+                        if(arr[i] > arr[j])  
+                        {  
+                            tmp = arr[i];  
+                            arr[i] = arr[j];  
+                            arr[j] = tmp;  
+                        }  
+                    }  
+                }  
+            }  
+            else  
+            {  
+                for(i = 0; i < arr.length; i++)  
+                {  
+                    for(j = i; j < arr.length; j++)  
+                    {  
+                        if(arr[i] < arr[j])  
+                        {  
+                            tmp = arr[i];  
+                            arr[i] = arr[j];  
+                            arr[j] = tmp;  
+                        }  
+                    }  
+                }  
+            }  
+            return arr;  
+        }  
+      
+    }  
+}  
+
